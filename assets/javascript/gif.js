@@ -28,7 +28,7 @@ $('.nature-btn').on('click', function(){
 			
 			var rating = results[i].rating;
 			var p = $('<p>').text('Rating: ' + rating);
-			natureImage = $('<img>').attr('data-state', slug).attr('class', 'newImage');
+			natureImage = $('<img>').attr('data-state', results[i].slug).attr('class', 'newImage');
 			natureImage.attr('src', results[i].images.fixed_height_still.url);
 			$('.image-container').prepend(natureImage).prepend(p);
 			//cache = results[i];
