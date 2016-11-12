@@ -18,7 +18,7 @@ $('.nature-btn').on('click', function(){
 
 
 	$.ajax({url: queryURL, method: 'GET'}).done(function(response){
-		console.log(response);
+		
 
 		var results = response.data;
 
@@ -33,32 +33,15 @@ $('.nature-btn').on('click', function(){
 			$('.image-container').prepend(natureImage).prepend(p);
 			//cache = results[i];
 			//var result = cache[results.slug];
-			cache = results[i];
+			cache.natureImage = results[i];
 			slug = results[i].slug;
-			// if (result) {
-			// 	console.log(slug + ' slug exists');
-			// }else{
-				
-			// 	console.log('none');
-			// }
-			console.log(cache);
+			
 		}
 			
-			console.log(slug);
+			
 // first attempt at toggling the image state
 $(document.body).on('click', natureImage, function(){
-    console.log(this).dataset.state);
-   // if ($(this)){  
-        //$(this).attr('src', cache.images.fixed_height.url);
-        //$(this).attr('src', results[i].images.fixed_height.url);
-        //$(this).attr('data-state', 'animate');
-        //$('.image-container').prepend(natureImage);
-    //          //$('.image-container').prepend(natureImage.images.fixed_height.url).prepend(p);    
-   // }else{   
-        //$(this).images.fixed_height_still.url;
-        //natureImage.attr('src', results[i].images.fixed_height.url);
-        //$('.image-container').prepend(results[i].images.fixed_height_still.url);
-    // }
+   
 });
 
 	});
