@@ -8,25 +8,25 @@
 <body>
 
 <div class="button-container">
-<button class="nature-btn" data-nature="trees">trees</button>
-<button class="nature-btn" data-nature="flowers">flowers</button>
-<button class="nature-btn" data-nature="bees">bees</button>
-<button class="nature-btn" data-nature="lakes">lakes</button>
-<button class="nature-btn" data-nature="clouds">clouds</button>
-	
-</div>
-
-<div class="image-container">
-	
+	<button class="nature-btn" data-state="still" data-nature="trees">trees</button>
+	<button class="nature-btn" data-state="still" data-nature="flowers">flowers</button>
+	<button class="nature-btn" data-state="still" data-nature="bees">bees</button>
+	<button class="nature-btn" data-state="still" data-nature="lakes">lakes</button>
+	<button class="nature-btn" data-state="still" data-nature="clouds">clouds</button>
 </div>
 
 <div class="input-container">
 	<form action="">
 		<input type="text" id="nature-input">
-		<label for="newGif">Search for more calligraphy!</label>
-		<button type="submit" id="find-nature">Submit</button>
+		<label for="newGif">Search for more nature!</label>
+		<button type="submit" id="find-nature" for="nature-input">Submit</button>
 	</form>
 </div>
+	
+
+
+<div class="image-container"></div>
+
 <script type="text/javascript" src="assets/javascript/gif.js"></script>	
 </body>
 </html>
