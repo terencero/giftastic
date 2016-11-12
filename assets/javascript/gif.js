@@ -18,7 +18,7 @@ $('.nature-btn').on('click', function(){
 
 
 	$.ajax({url: queryURL, method: 'GET'}).done(function(response){
-		
+		console.log(response);
 
 		var results = response.data;
 
@@ -31,17 +31,23 @@ $('.nature-btn').on('click', function(){
 			natureImage = $('<img>').attr('data-state', slug).attr('class', 'newImage');
 			natureImage.attr('src', results[i].images.fixed_height_still.url);
 			$('.image-container').prepend(natureImage).prepend(p);
-			
+			//cache = results[i];
+			//var result = cache[results.slug];
 			cache = results[i];
 			slug = results[i].slug;
-			
-			
+			// if (result) {
+			// 	console.log(slug + ' slug exists');
+			// }else{
+				
+			// 	console.log('none');
+			// }
+			console.log(cache);
 		}
 			
-			
+			console.log(slug);
 // first attempt at toggling the image state
 $(document.body).on('click', natureImage, function(){
-    console.log($(this).dataset.state);
+    console.log(this).dataset.state);
    // if ($(this)){  
         //$(this).attr('src', cache.images.fixed_height.url);
         //$(this).attr('src', results[i].images.fixed_height.url);
