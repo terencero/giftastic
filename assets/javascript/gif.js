@@ -28,12 +28,12 @@ $('.nature-btn').on('click', function(){
 			
 			var rating = results[i].rating;
 			var p = $('<p>').text('Rating: ' + rating);
-			natureImage = $('<img>').attr('data-slug', slug).attr('class', 'newImage');
+			natureImage = $('<img>').attr('data-state', slug).attr('class', 'newImage');
 			natureImage.attr('src', results[i].images.fixed_height_still.url);
 			$('.image-container').prepend(natureImage).prepend(p);
 			//cache = results[i];
 			//var result = cache[results.slug];
-			cache = results[i].images.slug;
+			cache = results[i];
 			slug = results[i].slug;
 			// if (result) {
 			// 	console.log(slug + ' slug exists');
@@ -41,23 +41,24 @@ $('.nature-btn').on('click', function(){
 				
 			// 	console.log('none');
 			// }
-			
+			console.log(cache);
 		}
-		console.log(cache);
-// first attempt at toggling the image state, if this doesn't work, move natureImage code into for loop
+			
+			console.log(slug);
+// first attempt at toggling the image state
 $(document.body).on('click', '.newImage', function(){
     console.log('clicked');
-    // if ($(this).state === 'still'){  
-        $(this).attr('src', results[i].images.fixed_height.url);
+    if ($(this)){  
+        $(this).attr('src', cache.images.fixed_height.url);
         //$(this).attr('src', results[i].images.fixed_height.url);
         $(this).attr('data-state', 'animate');
         //$('.image-container').prepend(natureImage);
     //          //$('.image-container').prepend(natureImage.images.fixed_height.url).prepend(p);    
-    // }else{   
+    }else{   
         //$(this).images.fixed_height_still.url;
         //natureImage.attr('src', results[i].images.fixed_height.url);
         //$('.image-container').prepend(results[i].images.fixed_height_still.url);
-    // }
+     }
 });
 
 	});
