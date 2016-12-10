@@ -5,7 +5,7 @@ var natureImage;
 var state = $('natureImage').attr('data-state');
 var slug;
 var results;
-var imageResults;
+//var imageResults;
 // topic button click event handler to produce gif
 
 $('.nature-btn').on('click', function(){	
@@ -27,15 +27,16 @@ $('.nature-btn').on('click', function(){
 
 		for (var i = 0; i < results.length; i++) {
 			// check if you have result in cache, if you do not, then assign cache[result.slug]=result
-			cache.imageResults = results;
+			
 			var rating = results[i].rating;
 			var p = $('<p>').text('Rating: ' + rating);
 			slug = results[i].slug;
-
+			cache[results[i].slug] = results[i];
+			//cache[results[i].slug] = $(results[i]).attr('slug', results[i].slug).attr('src', results[i].images);
 			natureImage = $('<img>').attr('id', slug).attr('class', 'newImage');
 			natureImage.attr('src', results[i].images.fixed_height_still.url);
 			$('.image-container').prepend(natureImage).prepend(p);
-			
+			//cache[results[i].slug] = 
 			
 			// if (result) {
 			// 	console.log(slug + ' slug exists');
@@ -53,18 +54,22 @@ $(document.body).on('click', '.newImage', function(){
     
     var currentId = $(this).attr('id');
     console.log(currentId);
+	var currentClass = $(this).attr('class');
+	console.log(currentClass);
+	console.log(slug);
+	
 
    // if ($(this)){  
-       // $(this).attr('src', cache.imageResults.images.fixed_height.url);
-        //$(this).attr('src', results[i].images.fixed_height.url);
-        //$(this).attr('data-state', 'animate');
-        //$('.image-container').prepend(natureImage);
-    //          //$('.image-container').prepend(natureImage.images.fixed_height.url).prepend(p);    
-   // }else{   
-        //$(this).images.fixed_height_still.url;
-        //natureImage.attr('src', results[i].images.fixed_height.url);
-        //$('.image-container').prepend(results[i].images.fixed_height_still.url);
-    // }
+       $(this).attr('src', fixed_height.url);
+   //      //$(this).attr('src', results[i].images.fixed_height.url);
+   //      //$(this).attr('data-state', 'animate');
+   //      //$('.image-container').prepend(natureImage);
+   //  //          //$('.image-container').prepend(natureImage.images.fixed_height.url).prepend(p);    
+   // // }else{   
+   //      //$(this).images.fixed_height_still.url;
+   //      //natureImage.attr('src', results[i].images.fixed_height.url);
+   //      //$('.image-container').prepend(results[i].images.fixed_height_still.url);
+   //  }
 });
 
 	});
